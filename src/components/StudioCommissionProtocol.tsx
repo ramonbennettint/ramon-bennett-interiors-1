@@ -13,7 +13,7 @@ export default function StudioCommissionProtocol() {
   const current = STUDIO_COMMISSION_PROTOCOL[activeStep] || STUDIO_COMMISSION_PROTOCOL[0];
 
   return (
-    <section className="py-24 lg:py-36 bg-[#F6F3EC] text-[#181412] border-b border-[#181412]/15">
+    <section className="py-24 lg:py-36 bg-[#FFFFFF] text-[#181412] border-b border-[#181412]/15">
       <div className="max-w-[1440px] mx-auto px-5 md:px-10 space-y-16">
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end border-b border-[#181412]/15 pb-10">
@@ -49,8 +49,8 @@ export default function StudioCommissionProtocol() {
                 onClick={() => setActiveStep(idx)}
                 className={`p-6 text-left border transition-all duration-300 flex flex-col justify-between space-y-4 ${
                   isActive
-                    ? "bg-[#181412] text-[#F6F3EC] border-[#181412] shadow-xl"
-                    : "bg-[#EDE6D8]/60 hover:bg-[#EDE6D8] text-[#181412] border-[#181412]/15"
+                    ? "bg-[#181412] text-[#FFFFFF] border-[#181412] shadow-xl"
+                    : "bg-[#F8F8F6]/60 hover:bg-[#F8F8F6] text-[#181412] border-[#181412]/15"
                 }`}
               >
                 <div className="flex items-center justify-between w-full border-b border-current/15 pb-3">
@@ -90,7 +90,7 @@ export default function StudioCommissionProtocol() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="p-8 sm:p-12 bg-[#EDE6D8] border border-[#181412]/15 shadow-sm space-y-8"
+            className="p-8 sm:p-12 bg-[#F8F8F6] border border-[#181412]/15 shadow-sm space-y-8"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
               {/* Left Column: Narrative & Focus */}
@@ -115,7 +115,7 @@ export default function StudioCommissionProtocol() {
                   <button
                     type="button"
                     onClick={() => openConcierge()}
-                    className="inline-flex items-center gap-2 bg-[#181412] hover:bg-[#4A1E1B] text-[#F6F3EC] px-6 py-3.5 text-xs font-mono uppercase tracking-[0.18em] transition-colors font-medium"
+                    className="inline-flex items-center gap-2 bg-[#181412] hover:bg-[#4A1E1B] text-[#FFFFFF] px-6 py-3.5 text-xs font-mono uppercase tracking-[0.18em] transition-colors font-medium"
                   >
                     <span>
                       {locale === "en"
@@ -137,7 +137,7 @@ export default function StudioCommissionProtocol() {
               </div>
 
               {/* Right Column: Tangible Phase Deliverables */}
-              <div className="lg:col-span-5 bg-[#F6F3EC] p-6 sm:p-8 border border-[#181412]/10 space-y-5">
+              <div className="lg:col-span-5 bg-[#FFFFFF] p-6 sm:p-8 border border-[#181412]/10 space-y-5">
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#8C6239] border-b border-[#181412]/10 pb-3 font-semibold">
                   <ShieldCheck className="w-4 h-4 text-[#8C6239]" />
                   <span>
@@ -148,7 +148,7 @@ export default function StudioCommissionProtocol() {
                 <ul className="space-y-4">
                   {current.deliverables.map((deliv, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-[#181412]">
-                      <span className="w-5 h-5 rounded-full bg-[#181412] text-[#F6F3EC] flex items-center justify-center text-[10px] font-mono flex-shrink-0 mt-0.5">
+                      <span className="w-5 h-5 rounded-full bg-[#181412] text-[#FFFFFF] flex items-center justify-center text-[10px] font-mono flex-shrink-0 mt-0.5">
                         {i + 1}
                       </span>
                       <span className="font-light leading-relaxed">

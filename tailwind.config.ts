@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        limestone: "#F6F3EC",
-        travertine: "#EDE6D8",
-        sandstone: "#DFD5C3",
+        limestone: "#FFFFFF",
+        travertine: "#F8F8F6",
+        sandstone: "#EAE6DF",
         espresso: "#181412",
         obsidian: "#161311",
         umber: "#524942",

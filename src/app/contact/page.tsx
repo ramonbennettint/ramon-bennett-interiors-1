@@ -71,7 +71,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#F6F3EC] text-[#181412] pt-28 md:pt-36">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#181412] pt-28 md:pt-36">
       {/* Top Heading */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 pb-16 md:pb-24 border-b border-[#181412]/10">
         <div className="max-w-4xl">
@@ -101,7 +101,7 @@ export default function ContactPage() {
             {STUDIO_CONFIG.offices.map((office) => (
               <div
                 key={office.city}
-                className="p-8 bg-[#EDE6D8] border border-[#181412]/10 space-y-4"
+                className="p-8 bg-[#F8F8F6] border border-[#181412]/10 space-y-4"
               >
                 <div className="flex items-center justify-between font-mono text-xs uppercase tracking-[0.2em] text-[#8C6239]">
                   <span>{office.city} STUDIO</span>
@@ -132,7 +132,7 @@ export default function ContactPage() {
             ))}
 
             {/* Direct WhatsApp & Instagram Concierge */}
-            <div className="p-8 bg-[#161311] text-[#F6F3EC] space-y-5">
+            <div className="p-8 bg-[#161311] text-[#FFFFFF] space-y-5">
               <div className="font-mono text-xs uppercase tracking-[0.2em] text-[#C59B6D]">
                 {locale === "en" ? "Direct Executive Channels" : "Canais Executivos Diretos"}
               </div>
@@ -146,7 +146,7 @@ export default function ContactPage() {
                   href={`https://wa.me/${STUDIO_CONFIG.whatsappLondon.replace(/\D/g, "")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between px-4 py-3 bg-[#1F1B18] border border-[#F6F3EC]/15 hover:border-[#8C6239] text-xs font-mono uppercase tracking-wider"
+                  className="flex items-center justify-between px-4 py-3 bg-[#1F1B18] border border-[#FFFFFF]/15 hover:border-[#8C6239] text-xs font-mono uppercase tracking-wider"
                 >
                   <span className="inline-flex items-center gap-2">
                     <MessageSquare className="w-3.5 h-3.5 text-[#C59B6D]" />
@@ -158,7 +158,7 @@ export default function ContactPage() {
                   href={`https://wa.me/${STUDIO_CONFIG.whatsappSalvador.replace(/\D/g, "")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between px-4 py-3 bg-[#1F1B18] border border-[#F6F3EC]/15 hover:border-[#8C6239] text-xs font-mono uppercase tracking-wider"
+                  className="flex items-center justify-between px-4 py-3 bg-[#1F1B18] border border-[#FFFFFF]/15 hover:border-[#8C6239] text-xs font-mono uppercase tracking-wider"
                 >
                   <span className="inline-flex items-center gap-2">
                     <MessageSquare className="w-3.5 h-3.5 text-[#C59B6D]" />
@@ -170,7 +170,7 @@ export default function ContactPage() {
                   href={STUDIO_CONFIG.instagramPersonal}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between px-4 py-3 bg-[#1F1B18] border border-[#F6F3EC]/15 hover:border-[#8C6239] text-xs font-mono"
+                  className="flex items-center justify-between px-4 py-3 bg-[#1F1B18] border border-[#FFFFFF]/15 hover:border-[#8C6239] text-xs font-mono"
                 >
                   <span className="inline-flex items-center gap-2">
                     <Instagram className="w-3.5 h-3.5 text-[#C59B6D]" />
@@ -182,7 +182,7 @@ export default function ContactPage() {
                   href={STUDIO_CONFIG.instagramStudio}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between px-4 py-3 bg-[#1F1B18] border border-[#F6F3EC]/15 hover:border-[#8C6239] text-xs font-mono"
+                  className="flex items-center justify-between px-4 py-3 bg-[#1F1B18] border border-[#FFFFFF]/15 hover:border-[#8C6239] text-xs font-mono"
                 >
                   <span className="inline-flex items-center gap-2">
                     <Instagram className="w-3.5 h-3.5 text-[#C59B6D]" />
@@ -195,7 +195,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Interactive Brief + Cal.com Live Scheduler */}
-          <div className="lg:col-span-7 bg-[#EDE6D8] border border-[#181412]/15 p-8 md:p-12">
+          <div className="lg:col-span-7 bg-[#F8F8F6] border border-[#181412]/15 p-8 md:p-12">
             {/* Switcher Tabs */}
             <div className="flex border-b border-[#181412]/15 mb-8">
               <button
@@ -227,7 +227,7 @@ export default function ContactPage() {
               status === "success" ? (
                 <div className="py-16 text-center space-y-6" role="status" aria-live="polite">
                   <CheckCircle2 className="w-14 h-14 text-[#8C6239] mx-auto" />
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F6F3EC] border border-[#8C6239]/40 font-mono text-[11px] uppercase tracking-widest text-[#8C6239]">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FFFFFF] border border-[#8C6239]/40 font-mono text-[11px] uppercase tracking-widest text-[#8C6239]">
                     {locale === "en"
                       ? "CONFIRMED: TRANSMITTED TO PRINCIPAL ARCHITECT"
                       : "CONFIRMADO: TRANSMITIDO AO ARQUITETO PRINCIPAL"}
@@ -246,7 +246,7 @@ export default function ContactPage() {
                     <button
                       type="button"
                       onClick={() => setActiveTab("calendar")}
-                      className="px-6 py-3 bg-[#181412] text-[#F6F3EC] font-mono text-xs uppercase tracking-[0.2em]"
+                      className="px-6 py-3 bg-[#181412] text-[#FFFFFF] font-mono text-xs uppercase tracking-[0.2em]"
                     >
                       {locale === "en" ? "Select Discovery Call Time →" : "Escolher Horário na Agenda →"}
                     </button>
@@ -281,7 +281,7 @@ export default function ContactPage() {
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         placeholder="e.g. Lord & Lady Sterling / Dr. Eduardo Costa"
-                        className="w-full px-4 py-3.5 bg-[#F6F3EC] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
+                        className="w-full px-4 py-3.5 bg-[#FFFFFF] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
                       />
                     </div>
                     <div>
@@ -294,7 +294,7 @@ export default function ContactPage() {
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                         placeholder="name@domain.com"
-                        className="w-full px-4 py-3.5 bg-[#F6F3EC] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
+                        className="w-full px-4 py-3.5 bg-[#FFFFFF] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
                       />
                     </div>
                   </div>
@@ -309,7 +309,7 @@ export default function ContactPage() {
                         value={formState.phone}
                         onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                         placeholder="+44 7700 900000 / +55 71 99999-9999"
-                        className="w-full px-4 py-3.5 bg-[#F6F3EC] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
+                        className="w-full px-4 py-3.5 bg-[#FFFFFF] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
                       />
                     </div>
                     <div>
@@ -321,7 +321,7 @@ export default function ContactPage() {
                         value={formState.city}
                         onChange={(e) => setFormState({ ...formState, city: e.target.value })}
                         placeholder="Kensington, London / Alphaville, Salvador"
-                        className="w-full px-4 py-3.5 bg-[#F6F3EC] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
+                        className="w-full px-4 py-3.5 bg-[#FFFFFF] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
                       />
                     </div>
                   </div>
@@ -334,7 +334,7 @@ export default function ContactPage() {
                       <select
                         value={formState.projectType}
                         onChange={(e) => setFormState({ ...formState, projectType: e.target.value })}
-                        className="w-full px-4 py-3.5 bg-[#F6F3EC] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
+                        className="w-full px-4 py-3.5 bg-[#FFFFFF] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
                       >
                         <option value="Turnkey Residential Architecture">
                           01. Turnkey Residential Architecture
@@ -357,7 +357,7 @@ export default function ContactPage() {
                       <select
                         value={formState.budgetRange}
                         onChange={(e) => setFormState({ ...formState, budgetRange: e.target.value })}
-                        className="w-full px-4 py-3.5 bg-[#F6F3EC] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
+                        className="w-full px-4 py-3.5 bg-[#FFFFFF] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
                       >
                         <option value="£75,000 – £150,000 / R$ 400k – R$ 800k">
                           £75,000 – £150,000 / R$ 400k – R$ 800k
@@ -391,14 +391,14 @@ export default function ContactPage() {
                           ? "Describe your property, architectural goals, or speaking event..."
                           : "Descreva seu imóvel, objetivos arquitetônicos ou convite para palestra..."
                       }
-                      className="w-full px-4 py-3.5 bg-[#F6F3EC] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
+                      className="w-full px-4 py-3.5 bg-[#FFFFFF] border border-[#181412]/20 text-[#181412] text-sm focus:outline-none focus:border-[#8C6239]"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="w-full py-4 bg-[#181412] text-[#F6F3EC] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.22em]"
+                    className="w-full py-4 bg-[#181412] text-[#FFFFFF] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.22em]"
                   >
                     {status === "submitting"
                       ? locale === "en"
@@ -412,7 +412,7 @@ export default function ContactPage() {
               )
             ) : (
               <div className="space-y-6">
-                <div className="p-4 bg-[#F6F3EC] border border-[#181412]/10 flex items-center justify-between flex-wrap gap-4">
+                <div className="p-4 bg-[#FFFFFF] border border-[#181412]/10 flex items-center justify-between flex-wrap gap-4">
                   <div>
                     <div className="font-mono text-xs uppercase tracking-wider text-[#8C6239]">
                       PRIVATE DISCOVERY SCHEDULER · LONDON & SALVADOR
@@ -432,7 +432,7 @@ export default function ContactPage() {
                     {locale === "en" ? "Schedule in New Tab ↗" : "Abrir em Nova Guia ↗"}
                   </a>
                 </div>
-                <div className="w-full h-[540px] bg-[#F6F3EC] border border-[#181412]/15 overflow-hidden">
+                <div className="w-full h-[540px] bg-[#FFFFFF] border border-[#181412]/15 overflow-hidden">
                   <iframe
                     src={`https://cal.com/${STUDIO_CONFIG.calLink}?embed=true&theme=light`}
                     title="Ramon Bennett Interiors Consultation Calendar"

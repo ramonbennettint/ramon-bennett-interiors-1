@@ -14,7 +14,7 @@ export default function JournalPage() {
   const remainingEssays = essays.slice(1);
 
   return (
-    <main className="min-h-screen bg-[#F6F3EC] text-[#181412] pt-28 md:pt-36">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#181412] pt-28 md:pt-36">
       {/* Editorial Header */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 pb-16 md:pb-24 border-b border-[#181412]/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
@@ -63,7 +63,7 @@ export default function JournalPage() {
             className="group grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
           >
             <div className="lg:col-span-7">
-              <div className="relative aspect-[16/10] overflow-hidden bg-[#EDE6D8] border border-[#181412]/10">
+              <div className="relative aspect-[16/10] overflow-hidden bg-[#F8F8F6] border border-[#181412]/10">
                 <Image
                   src={leadEssay.coverImage}
                   alt={leadEssay.title[locale]}
@@ -72,7 +72,7 @@ export default function JournalPage() {
                   sizes="(max-width: 1024px) 100vw, 58vw"
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute top-4 left-4 bg-[#161311]/90 text-[#F6F3EC] px-3.5 py-1.5 font-mono text-xs uppercase tracking-widest">
+                <div className="absolute top-4 left-4 bg-[#161311]/90 text-[#FFFFFF] px-3.5 py-1.5 font-mono text-xs uppercase tracking-widest">
                   {locale === "en" ? "Featured Monograph" : "Ensaio em Destaque"}
                 </div>
               </div>
@@ -117,7 +117,7 @@ export default function JournalPage() {
             <Link
               key={essay.slug}
               href={`/journal/${essay.slug}`}
-              className="group flex flex-col justify-between bg-[#EDE6D8] border border-[#181412]/10 overflow-hidden"
+              className="group flex flex-col justify-between bg-[#F8F8F6] border border-[#181412]/10 overflow-hidden"
             >
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-[#161311]">
@@ -151,7 +151,7 @@ export default function JournalPage() {
         </div>
 
         {/* Speaking & Editorial Commission CTA */}
-        <div className="mt-24 bg-[#161311] text-[#F6F3EC] p-10 md:p-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div className="mt-24 bg-[#161311] text-[#FFFFFF] p-10 md:p-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl">
             <div className="font-mono text-xs uppercase tracking-[0.2em] text-[#C59B6D]">
               {locale === "en" ? "Editorial & Speaking Inquiries" : "Imprensa, Artigos & Palestras"}
@@ -169,7 +169,7 @@ export default function JournalPage() {
           </div>
           <button
             onClick={() => openConcierge()}
-            className="px-8 py-4 bg-[#8C6239] text-[#F6F3EC] hover:bg-[#F6F3EC] hover:text-[#181412] transition-colors font-mono text-xs uppercase tracking-[0.2em] shrink-0"
+            className="px-8 py-4 bg-[#8C6239] text-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-[#181412] transition-colors font-mono text-xs uppercase tracking-[0.2em] shrink-0"
           >
             {locale === "en" ? "Connect With Studio" : "Falar com o Estúdio"}
           </button>

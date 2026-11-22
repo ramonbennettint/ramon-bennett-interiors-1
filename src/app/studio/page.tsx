@@ -1,238 +1,339 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Play, X } from "lucide-react";
 import { useStudio } from "@/context/StudioContext";
-import { STUDIO_HERITAGE_STORY, PROJECTS_DATA } from "@/data/studioData";
-import CraftsmanshipZoomGallery from "@/components/CraftsmanshipZoomGallery";
-import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import { STUDIO_HERITAGE_STORY } from "@/data/studioData";
+import StudioDispatches from "@/components/StudioDispatches";
 
 export default function StudioPage() {
-  const { locale, openConcierge } = useStudio();
-  const featuredTransformation = PROJECTS_DATA[0];
+  const { locale, openConcierge, projects, heroVideoUrl } = useStudio();
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
+
+  const videoSrc = heroVideoUrl || "/videos/hero_ambient_loop.mp4";
+  const videoPoster = "/images/01_hero_salvador_london_penthouse.jpg";
+  const latestThreeProjects = projects.slice(0, 3);
 
   return (
-    <main className="min-h-screen bg-[#F6F3EC] text-[#181412] pt-28 md:pt-36">
-      {/* Hero Banner */}
-      <section className="max-w-[1440px] mx-auto px-6 md:px-12 pb-20 md:pb-28 border-b border-[#181412]/10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-          <div className="lg:col-span-8">
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="font-serif text-4xl sm:text-6xl lg:text-7xl leading-[1.04] tracking-tight text-[#181412]"
-            >
-              {STUDIO_HERITAGE_STORY.headline[locale]}
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8 text-lg md:text-2xl text-[#524942] font-light leading-relaxed max-w-3xl"
-            >
-              {STUDIO_HERITAGE_STORY.subheadline[locale]}
-            </motion.p>
+    <div className="min-h-screen bg-white text-espresso selection:bg-espresso selection:text-white">
+      {/* 2.1. FULL-WIDTH VIDEO (Katharine Pooley Approach: Immediately below navbar, edge-to-edge, no margins or side spacing) */}
+      <section className="relative w-full h-[76vh] sm:h-[84vh] lg:h-[88vh] overflow-hidden bg-obsidian">
+        {!videoFailed ? (
+          <video
+            src={videoSrc}
+            poster={videoPoster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            onError={() => setVideoFailed(true)}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="relative w-full h-full overflow-hidden">
+            <Image
+              src={videoPoster}
+              alt="Ramon Bennett Interiors — London & Salvador"
+              fill
+              sizes="100vw"
+              priority
+              className="object-cover object-center animate-micro-life"
+            />
           </div>
-          <div className="lg:col-span-4 flex flex-col justify-end border-l border-[#181412]/15 pl-6 space-y-4">
-            <div className="font-mono text-xs uppercase tracking-[0.2em] text-[#8C6239]">
-              LONDON SW7 • SALVADOR BAHIA
-            </div>
-            <p className="text-sm text-[#524942] leading-relaxed">
-              {locale === "en"
-                ? "Three decades of master Brazilian bespoke joinery united with London spatial psychology, legal precision, and turnkey architectural execution."
-                : "Três décadas de alta marcenaria artesanal em Salvador unidas à psicologia espacial de Londres, governança jurídica e execução arquitetônica."}
-            </p>
-            <div className="pt-2 flex flex-wrap gap-6 font-mono text-xs text-[#181412]">
-              <div>
-                <span className="block text-2xl font-serif text-[#8C6239]">30+</span>
-                {locale === "en" ? "Years Joinery Lineage" : "Anos de Alta Marcenaria"}
-              </div>
-              <div>
-                <span className="block text-2xl font-serif text-[#8C6239]">17</span>
-                {locale === "en" ? "Years in London" : "Anos em Londres"}
-              </div>
-              <div>
-                <span className="block text-2xl font-serif text-[#8C6239]">100%</span>
-                {locale === "en" ? "Bespoke Fabrication" : "Fabricação Própria"}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        )}
 
-      {/* The Three-Chapter Heritage Narrative */}
-      <section className="max-w-[1440px] mx-auto px-6 md:px-12 py-24 md:py-32 space-y-28 md:space-y-36">
-        {STUDIO_HERITAGE_STORY.chapters.map((chapter, index) => {
-          const isEven = index % 2 === 0;
-          return (
-            <div
-              key={chapter.title.en}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
-            >
-              <div
-                className={`lg:col-span-6 ${
-                  isEven ? "lg:order-1" : "lg:order-2"
-                }`}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#EDE6D8] border border-[#181412]/10 shadow-xl">
-                  <Image
-                    src={chapter.image}
-                    alt={chapter.title[locale]}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-1000 hover:scale-105"
-                  />
-                </div>
-                <p className="mt-4 font-mono text-xs text-[#524942] leading-relaxed border-l-2 border-[#8C6239] pl-3">
-                  {chapter.imageCaption[locale]}
-                </p>
-              </div>
-
-              <div
-                className={`lg:col-span-6 space-y-6 ${
-                  isEven ? "lg:order-2" : "lg:order-1"
-                }`}
-              >
-                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#181412] leading-[1.12]">
-                  {chapter.title[locale]}
-                </h2>
-                <div className="space-y-5 text-base md:text-lg text-[#524942] leading-relaxed">
-                  {chapter.paragraphs[locale].map((paragraph, pIdx) => (
-                    <p key={pIdx}>{paragraph}</p>
-                  ))}
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </section>
-
-      {/* 3-Column Parallax Craftsmanship Zoom Gallery */}
-      <CraftsmanshipZoomGallery />
-
-      {/* The Leadership Triad (Ramon, Márcia, Mariana) */}
-      <section className="bg-[#161311] text-[#F6F3EC] py-24 md:py-32">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 border-b border-[#F6F3EC]/15 pb-12">
-            <div>
-              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl leading-[1.08]">
-                {locale === "en"
-                  ? "Three Vocation Pillars. One Family Standard."
-                  : "Três Pilares de Vocação. Um Único Padrão Familiar."}
-              </h2>
-              <p className="mt-4 text-[#D8CEBE] max-w-2xl text-base md:text-lg font-light">
-                {locale === "en"
-                  ? "Every commission at Ramon Bennett Interiors is governed simultaneously by psychological insight, master workshop fabrication, and legal-grade project management."
-                  : "Cada projeto na Ramon Bennett Interiors é regido simultaneamente por psicologia espacial, fabricação artesanal própria e governança contratual rigorosa."}
-              </p>
-            </div>
-            <Link
-              href="/founder"
-              className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#8C6239] text-[#F6F3EC] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em]"
-            >
-              {locale === "en" ? "Explore Founder Philosophy" : "Ver Filosofia do Fundador"}
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {STUDIO_HERITAGE_STORY.pillars.map((person, idx) => (
-              <div
-                key={person.name}
-                className="group bg-[#1F1B18] border border-[#F6F3EC]/10 flex flex-col justify-between overflow-hidden"
-              >
-                <div>
-                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#161311]">
-                    <Image
-                      src={person.portrait}
-                      alt={person.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute top-4 left-4 bg-[#161311]/85 backdrop-blur-md px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-[#D8CEBE] border border-[#F6F3EC]/15">
-                      0{idx + 1} • {person.location}
-                    </div>
-                  </div>
-                  <div className="p-8">
-                    <h3 className="font-serif text-2xl sm:text-3xl text-[#F6F3EC]">
-                      {person.name}
-                    </h3>
-                    <p className="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-[#C59B6D]">
-                      {person.role[locale]}
-                    </p>
-                    <p className="mt-5 text-sm text-[#D8CEBE]/90 leading-relaxed">
-                      {person.bio[locale]}
-                    </p>
-                  </div>
-                </div>
-                <div className="px-8 pb-8 pt-4 border-t border-[#F6F3EC]/10 flex items-center justify-between font-mono text-xs text-[#C59B6D]">
-                  <span>
-                    {idx === 0 && (locale === "en" ? "Spatial Psychology & Vision" : "Psicologia Espacial & Visão")}
-                    {idx === 1 && (locale === "en" ? "30+ Yrs Bespoke Joinery" : "30+ Anos de Alta Marcenaria")}
-                    {idx === 2 && (locale === "en" ? "10 Yrs Legal & Turnkey Governance" : "10 Anos de Rigor Jurídico")}
-                  </span>
-                  <span className="text-[10px] tracking-widest text-[#8C6239] uppercase">
-                    {idx === 0 ? "01 · PRINCIPAL" : idx === 1 ? "02 · MASTER ATELIER" : "03 · GOVERNANCE"}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Studio Transformation Proof */}
-      <section className="max-w-[1440px] mx-auto px-6 md:px-12 py-24 md:py-32">
-        <div className="max-w-3xl mb-12">
-          <h2 className="font-serif text-3xl sm:text-5xl text-[#181412] leading-tight">
-            {locale === "en"
-              ? "How Our Lineage Transforms Raw Space Into Living Architecture"
-              : "Como Nossa Tradição Transforma Estruturas Brutas em Arquitetura Viva"}
-          </h2>
-          <p className="mt-4 text-[#524942] text-base md:text-lg leading-relaxed">
-            {locale === "en"
-              ? "Drag the architectural divider or click the numbered pins to inspect how Ramon's spatial psychology, Márcia's custom Freijó joinery, and Mariana's engineering governance converged in Alphaville I."
-              : "Arraste o divisor ou clique nos pinos técnicos para inspecionar como a psicologia espacial de Ramon, a marcenaria em Freijó de Márcia e a gestão de Mariana convergiram no projeto Alphaville I."}
-          </p>
-        </div>
-
-        <BeforeAfterSlider
-          projectSlug={featuredTransformation.slug}
-          projectTitle={featuredTransformation.title}
-          location={featuredTransformation.location}
-          coordinates={featuredTransformation.coordinates}
-          beforeImage={featuredTransformation.beforeImage}
-          afterImage={featuredTransformation.afterImage}
-          beforeLabel={featuredTransformation.beforeLabel}
-          afterLabel={featuredTransformation.afterLabel}
-          curePins={featuredTransformation.curePins}
-        />
-
-        <div className="mt-16 bg-[#EDE6D8] border border-[#181412]/10 p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-[#8C6239]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8C6239]" />
-              {locale === "en" ? "Begin Your Commission" : "Inicie Seu Projeto"}
-            </div>
-            <h3 className="font-serif text-2xl md:text-4xl text-[#181412]">
-              {locale === "en"
-                ? "Ready to discuss a residence or hospitality space in London or Brazil?"
-                : "Pronto para conversar sobre sua residência ou espaço em Londres ou no Brasil?"}
-            </h3>
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent px-6 sm:px-12 py-8 flex items-end justify-between">
+          <div className="text-white/90 text-[11px] uppercase tracking-[0.28em] font-sans">
+            {locale === "en" ? "LONDON · SALVADOR" : "LONDRES · SALVADOR"}
           </div>
           <button
-            onClick={() => openConcierge()}
-            className="px-8 py-4 bg-[#181412] text-[#F6F3EC] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em] shrink-0"
+            type="button"
+            onClick={() => setVideoModalOpen(true)}
+            className="inline-flex items-center gap-2.5 bg-white/90 hover:bg-white text-espresso px-5 py-2.5 text-[11px] uppercase tracking-[0.22em] transition-colors"
           >
-            {locale === "en" ? "Book Private Consultation" : "Agendar Consulta Privada"}
+            <Play className="w-3 h-3 fill-current" />
+            <span>
+              {locale === "en" ? "Watch Studio Film" : "Assistir Filme"}
+            </span>
           </button>
         </div>
       </section>
-    </main>
+
+      {/* 2.2. STUDIO INTRODUCTION (Immediately after the first video) */}
+      <section className="bg-white py-20 sm:py-24 lg:py-32 px-5 md:px-10">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="font-serif text-3xl sm:text-5xl lg:text-[56px] font-light tracking-tight leading-[1.12] text-espresso"
+          >
+            {locale === "en"
+              ? "The Art of Understanding: Sculpted Between Two Continents"
+              : "A Arte de Compreender: Esculpida Entre Dois Continentes"}
+          </motion.h1>
+
+          <div className="w-16 h-[1px] bg-bronze/60 mx-auto" />
+
+          <p className="text-umber text-base sm:text-lg leading-relaxed font-light max-w-2xl mx-auto pt-2">
+            {STUDIO_HERITAGE_STORY.subheadline[locale]}
+          </p>
+        </div>
+      </section>
+
+      {/* 2.3. STUDIO STORY AND TEAM (Sophie Paterson Editorial Presentation) */}
+      <section className="bg-white pb-24 lg:pb-36 px-5 md:px-10 border-b border-espresso/10">
+        <div className="max-w-[1360px] mx-auto space-y-24">
+          {/* Primary Story & Team Split */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-7">
+              <div className="grid grid-cols-12 gap-4 sm:gap-6 items-end">
+                <div className="col-span-7 relative aspect-[3/4] overflow-hidden bg-[#F8F8F6]">
+                  <Image
+                    src="/images/people_ramon.png"
+                    alt="Ramon Bennett — Founder & Creative Director"
+                    fill
+                    sizes="(max-width: 1024px) 60vw, 35vw"
+                    className="object-cover object-top transition-transform duration-1000 ease-editorial hover:scale-105"
+                  />
+                </div>
+                <div className="col-span-5 space-y-4 sm:space-y-6">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-[#F8F8F6]">
+                    <Image
+                      src="/images/studio_craftsmanship_1.jpg"
+                      alt="Márcia Ribeiro — 30 Years of Master Bespoke Joinery"
+                      fill
+                      sizes="(max-width: 1024px) 40vw, 25vw"
+                      className="object-cover object-center transition-transform duration-1000 ease-editorial hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4 sm:p-5 bg-[#F8F8F6] border border-espresso/10 space-y-1.5">
+                    <p className="font-serif text-base sm:text-lg text-espresso font-normal">
+                      {locale === "en"
+                        ? "A Three-Decade Family Lineage"
+                        : "Três Décadas de Tradição Familiar"}
+                    </p>
+                    <p className="text-xs text-umber font-light leading-relaxed">
+                      {locale === "en"
+                        ? "Ramon Bennett alongside master joiner Márcia Ribeiro and operations director Mariana Figueiredo."
+                        : "Ramon Bennett ao lado da mestre em marcenaria Márcia Ribeiro e da diretora de operações Mariana Figueiredo."}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 space-y-6">
+              <span className="text-[11px] uppercase tracking-[0.28em] text-bronze block">
+                {locale === "en" ? "OUR STORY & TEAM" : "NOSSA HISTÓRIA & EQUIPE"}
+              </span>
+
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-light text-espresso leading-[1.14]">
+                {STUDIO_HERITAGE_STORY.headline[locale]}
+              </h2>
+
+              <div className="space-y-4 text-umber text-sm sm:text-base leading-relaxed font-light">
+                {STUDIO_HERITAGE_STORY.chapters[0].paragraphs[locale].map(
+                  (p, idx) => (
+                    <p key={idx}>{p}</p>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* The Three Team Pillars on Clean White Background */}
+          <div className="pt-12 border-t border-espresso/10">
+            <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+              <span className="text-[11px] uppercase tracking-[0.28em] text-bronze block">
+                {locale === "en" ? "LEADERSHIP" : "LIDERANÇA"}
+              </span>
+              <h3 className="font-serif text-3xl sm:text-4xl font-light text-espresso">
+                {locale === "en"
+                  ? "Three Vocation Pillars. One Family Standard."
+                  : "Três Pilares de Vocação. Um Único Padrão Familiar."}
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {STUDIO_HERITAGE_STORY.pillars.map((person) => (
+                <div
+                  key={person.name}
+                  className="group bg-white border border-espresso/10 flex flex-col justify-between overflow-hidden"
+                >
+                  <div>
+                    <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#F8F8F6]">
+                      <Image
+                        src={person.portrait}
+                        alt={person.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-6 sm:p-8 space-y-3">
+                      <h4 className="font-serif text-2xl sm:text-3xl text-espresso font-light">
+                        {person.name}
+                      </h4>
+                      <p className="text-[11px] uppercase tracking-[0.18em] text-bronze">
+                        {person.role[locale]}
+                      </p>
+                      <p className="text-sm text-umber font-light leading-relaxed pt-2">
+                        {person.bio[locale]}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2.4. LATEST PROJECTS (Sophie Paterson Layout: Title "Latest Projects" + 3 clickable projects) */}
+      <section className="bg-white py-24 lg:py-32 px-5 md:px-10">
+        <div className="max-w-[1440px] mx-auto space-y-14">
+          <div className="text-center space-y-3">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-[0.14em] uppercase text-espresso">
+              {locale === "en" ? "Latest Projects" : "Projetos Recentes"}
+            </h2>
+            <div className="w-12 h-[1px] bg-bronze/60 mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+            {latestThreeProjects.map((project, index) => {
+              const projectImages = [
+                "/images/03_after_alphaville_transformed.jpg",
+                "/images/08_after_kensington_london_sanctuary.jpg",
+                "/images/05_rua_do_palacio_hospitality_lounge.jpg",
+              ];
+              const displayImage = projectImages[index] || project.afterImage;
+
+              return (
+                <article key={project.slug} className="group text-center space-y-5">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="block relative aspect-[4/5] w-full overflow-hidden bg-[#F8F8F6]"
+                  >
+                    <Image
+                      src={displayImage}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover object-center transition-transform duration-1000 ease-editorial group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
+                  </Link>
+
+                  <div className="space-y-1.5 px-2">
+                    <p className="text-[10.5px] uppercase tracking-[0.24em] text-umber">
+                      {project.location}
+                    </p>
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="inline-block"
+                    >
+                      <h3 className="font-serif text-2xl sm:text-3xl font-light text-espresso group-hover:text-bronze transition-colors">
+                        {project.title}
+                      </h3>
+                    </Link>
+                    <div className="pt-1">
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.22em] text-espresso border-b border-espresso/30 pb-0.5 group-hover:border-bronze group-hover:text-bronze transition-colors"
+                      >
+                        <span>
+                          {locale === "en" ? "Explore Project" : "Ver Projeto"}
+                        </span>
+                        <ArrowUpRight className="w-3 h-3" />
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 2.5. INSTAGRAM SECTION (Sophie Paterson Layout: INSTAGRAM on left-hand side, 8 images on right-hand side) */}
+      <StudioDispatches />
+
+      {/* 2.6. FINAL CALL-TO-ACTION SECTION (1508 Interiors Approach) */}
+      <section className="relative w-full h-[65vh] min-h-[480px] overflow-hidden bg-obsidian flex items-center justify-center">
+        <Image
+          src="/images/home_golden_living_room.png"
+          alt="Every Space Has A Story. Let's Discover Yours — Ramon Bennett Interiors"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center text-white space-y-8">
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.12]">
+            {locale === "en"
+              ? "Every Space Has A Story. Let's Discover Yours"
+              : "Cada Espaço Tem Uma História. Vamos Descobrir a Sua"}
+          </h2>
+
+          <div>
+            <button
+              type="button"
+              onClick={() => openConcierge()}
+              className="inline-flex items-center gap-3 bg-white text-espresso hover:bg-bronze hover:text-white px-9 py-4 text-xs uppercase tracking-[0.26em] font-medium transition-colors duration-300"
+            >
+              <span>
+                {locale === "en" ? "Begin Your Story" : "Comece Sua História"}
+              </span>
+              <ArrowUpRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* FULLSCREEN STUDIO FILM MODAL */}
+      {videoModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-300">
+          <div className="relative w-full max-w-5xl bg-obsidian text-white border border-white/20 p-6 sm:p-8 space-y-6">
+            <div className="flex items-center justify-between border-b border-white/15 pb-4">
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/70 block">
+                  RAMON BENNETT INTERIORS
+                </span>
+                <p className="font-serif text-2xl text-white font-light">
+                  {locale === "en"
+                    ? "The Art of Understanding: Sculpted Between Two Continents"
+                    : "A Arte de Compreender: Esculpida Entre Dois Continentes"}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setVideoModalOpen(false)}
+                className="p-2 border border-white/25 hover:border-white text-white transition-colors"
+                aria-label="Close Cinema"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="aspect-video w-full bg-black overflow-hidden">
+              <video
+                src={videoSrc}
+                poster={videoPoster}
+                controls
+                autoPlay
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

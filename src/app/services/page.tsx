@@ -16,7 +16,7 @@ export default function ServicesPage() {
   const kensingtonProject = PROJECTS_DATA[1];
 
   return (
-    <main className="min-h-screen bg-[#F6F3EC] text-[#181412] pt-28 md:pt-36">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#181412] pt-28 md:pt-36">
       {/* Header Section */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 pb-20 md:pb-28 border-b border-[#181412]/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
@@ -40,7 +40,7 @@ export default function ServicesPage() {
           <div className="lg:col-span-4 flex lg:justify-end">
             <button
               onClick={() => openConcierge()}
-              className="px-8 py-4 bg-[#181412] text-[#F6F3EC] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em]"
+              className="px-8 py-4 bg-[#181412] text-[#FFFFFF] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em]"
             >
               {locale === "en" ? "Request Scope & Fee Proposal" : "Solicitar Proposta de Projeto"}
             </button>
@@ -59,7 +59,7 @@ export default function ServicesPage() {
           return (
             <div
               key={service.number}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 p-8 md:p-12 bg-[#EDE6D8] border border-[#181412]/10 items-center"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 p-8 md:p-12 bg-[#F8F8F6] border border-[#181412]/10 items-center"
             >
               <div className="lg:col-span-5">
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#161311]">
@@ -70,7 +70,7 @@ export default function ServicesPage() {
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover"
                   />
-                  <div className="absolute top-4 left-4 bg-[#161311]/90 text-[#F6F3EC] px-3.5 py-1.5 font-mono text-xs tracking-widest">
+                  <div className="absolute top-4 left-4 bg-[#161311]/90 text-[#FFFFFF] px-3.5 py-1.5 font-mono text-xs tracking-widest">
                     DISCIPLINE {service.number}
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export default function ServicesPage() {
                     {service.deliverables.map((item) => (
                       <div
                         key={item}
-                        className="flex items-start gap-2.5 text-sm text-[#181412] bg-[#F6F3EC] p-3.5 border border-[#181412]/10"
+                        className="flex items-start gap-2.5 text-sm text-[#181412] bg-[#FFFFFF] p-3.5 border border-[#181412]/10"
                       >
                         <Check className="w-4 h-4 text-[#8C6239] shrink-0 mt-0.5" />
                         <span>{item}</span>
@@ -114,7 +114,7 @@ export default function ServicesPage() {
                 <div className="pt-4 flex flex-wrap items-center gap-6">
                   <button
                     onClick={() => openConcierge(service.title.en)}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#181412] text-[#F6F3EC] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em]"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#181412] text-[#FFFFFF] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em]"
                   >
                     {locale === "en" ? "Commission This Discipline" : "Consultar Esta Modalidade"}
                     <ArrowUpRight className="w-4 h-4" />

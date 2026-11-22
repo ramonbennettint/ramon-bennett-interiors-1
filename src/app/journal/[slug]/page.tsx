@@ -21,7 +21,7 @@ export default function JournalArticlePage() {
   const relatedEssays = essays.filter((item) => item.slug !== essay.slug);
 
   return (
-    <main className="min-h-screen bg-[#F6F3EC] text-[#181412] pt-28 md:pt-36">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#181412] pt-28 md:pt-36">
       {/* Top Breadcrumb */}
       <div className="max-w-[1040px] mx-auto px-6 md:px-12 pb-8">
         <Link
@@ -89,7 +89,7 @@ export default function JournalArticlePage() {
         </div>
 
         {/* Cover Visual */}
-        <div className="my-12 relative aspect-[16/9] w-full overflow-hidden bg-[#EDE6D8] border border-[#181412]/10 shadow-xl">
+        <div className="my-12 relative aspect-[16/9] w-full overflow-hidden bg-[#F8F8F6] border border-[#181412]/10 shadow-xl">
           <Image
             src={essay.coverImage}
             alt={essay.title[locale]}
@@ -111,7 +111,7 @@ export default function JournalArticlePage() {
           ))}
 
           {/* Pull Quote Box */}
-          <div className="my-12 p-8 md:p-10 bg-[#EDE6D8] border border-[#181412]/15">
+          <div className="my-12 p-8 md:p-10 bg-[#F8F8F6] border border-[#181412]/15">
             <div className="font-mono text-xs uppercase tracking-[0.2em] text-[#8C6239] mb-2">
               {locale === "en" ? "Architectural Principle" : "Princípio Arquitetônico"}
             </div>
@@ -122,7 +122,7 @@ export default function JournalArticlePage() {
         </div>
 
         {/* Consultation Footer Box */}
-        <div className="mt-16 p-8 md:p-12 bg-[#161311] text-[#F6F3EC] flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div className="mt-16 p-8 md:p-12 bg-[#161311] text-[#FFFFFF] flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div className="space-y-2 max-w-xl">
             <div className="font-mono text-xs uppercase tracking-[0.2em] text-[#C59B6D]">
               {locale === "en" ? "Private Discovery" : "Diagnóstico Privado"}
@@ -140,7 +140,7 @@ export default function JournalArticlePage() {
           </div>
           <button
             onClick={() => openConcierge()}
-            className="px-7 py-4 bg-[#8C6239] text-[#F6F3EC] hover:bg-[#F6F3EC] hover:text-[#181412] transition-colors font-mono text-xs uppercase tracking-[0.2em] shrink-0"
+            className="px-7 py-4 bg-[#8C6239] text-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-[#181412] transition-colors font-mono text-xs uppercase tracking-[0.2em] shrink-0"
           >
             {locale === "en" ? "Book Consultation" : "Agendar Consulta"}
           </button>
@@ -148,7 +148,7 @@ export default function JournalArticlePage() {
       </article>
 
       {/* Related Essays */}
-      <section className="bg-[#EDE6D8] py-20 border-t border-[#181412]/10">
+      <section className="bg-[#F8F8F6] py-20 border-t border-[#181412]/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <h2 className="font-serif text-3xl text-[#181412] mb-10">
             {locale === "en" ? "Further Reading" : "Continue Lendo"}
@@ -158,7 +158,7 @@ export default function JournalArticlePage() {
               <Link
                 key={rel.slug}
                 href={`/journal/${rel.slug}`}
-                className="group p-8 bg-[#F6F3EC] border border-[#181412]/10 flex flex-col justify-between"
+                className="group p-8 bg-[#FFFFFF] border border-[#181412]/10 flex flex-col justify-between"
               >
                 <div>
                   <div className="font-mono text-xs uppercase tracking-widest text-[#8C6239]">

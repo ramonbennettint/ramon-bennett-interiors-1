@@ -288,7 +288,7 @@ export default function AdminDashboardPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#F6F3EC] text-[#181412] pt-28 md:pt-36 pb-28">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#181412] pt-28 md:pt-36 pb-28">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         {/* Top Studio CMS Bar */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-12 border-b border-[#181412]/10 gap-6">
@@ -308,7 +308,7 @@ export default function AdminDashboardPage() {
           <div className="flex flex-wrap items-center gap-3">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-5 py-3 bg-[#EDE6D8] border border-[#181412]/15 text-xs font-mono uppercase tracking-wider hover:border-[#8C6239]"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-[#F8F8F6] border border-[#181412]/15 text-xs font-mono uppercase tracking-wider hover:border-[#8C6239]"
             >
               View Live Portfolio
               <ExternalLink className="w-3.5 h-3.5" />
@@ -316,7 +316,7 @@ export default function AdminDashboardPage() {
             <button
               type="button"
               onClick={handleResetCustomData}
-              className="inline-flex items-center gap-2 px-4 py-3 border border-[#4A1E1B]/30 text-[#4A1E1B] text-xs font-mono uppercase tracking-wider hover:bg-[#4A1E1B] hover:text-[#F6F3EC] transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-3 border border-[#4A1E1B]/30 text-[#4A1E1B] text-xs font-mono uppercase tracking-wider hover:bg-[#4A1E1B] hover:text-[#FFFFFF] transition-colors"
             >
               <Trash2 className="w-3.5 h-3.5" />
               Reset Custom Edits
@@ -329,7 +329,7 @@ export default function AdminDashboardPage() {
           <div
             role="status"
             aria-live="polite"
-            className="my-6 p-4 bg-[#161311] text-[#F6F3EC] border border-[#8C6239]/50 flex items-center justify-between gap-3 font-mono text-xs"
+            className="my-6 p-4 bg-[#161311] text-[#FFFFFF] border border-[#8C6239]/50 flex items-center justify-between gap-3 font-mono text-xs"
           >
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-4 h-4 text-[#C59B6D] shrink-0" />
@@ -338,7 +338,7 @@ export default function AdminDashboardPage() {
             <button
               type="button"
               onClick={() => setToast(null)}
-              className="px-2 py-1 border border-[#F6F3EC]/20 hover:border-[#F6F3EC] text-[10px] uppercase tracking-wider"
+              className="px-2 py-1 border border-[#FFFFFF]/20 hover:border-[#FFFFFF] text-[10px] uppercase tracking-wider"
             >
               Dismiss
             </button>
@@ -352,8 +352,8 @@ export default function AdminDashboardPage() {
             onClick={() => setActiveTab("projects")}
             className={`inline-flex items-center gap-2 px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] transition-colors ${
               activeTab === "projects"
-                ? "bg-[#181412] text-[#F6F3EC]"
-                : "bg-[#EDE6D8] text-[#524942] hover:text-[#181412]"
+                ? "bg-[#181412] text-[#FFFFFF]"
+                : "bg-[#F8F8F6] text-[#524942] hover:text-[#181412]"
             }`}
           >
             <Layers className="w-4 h-4" />
@@ -365,8 +365,8 @@ export default function AdminDashboardPage() {
             onClick={() => setActiveTab("video")}
             className={`inline-flex items-center gap-2 px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] transition-colors ${
               activeTab === "video"
-                ? "bg-[#181412] text-[#F6F3EC]"
-                : "bg-[#EDE6D8] text-[#524942] hover:text-[#181412]"
+                ? "bg-[#181412] text-[#FFFFFF]"
+                : "bg-[#F8F8F6] text-[#524942] hover:text-[#181412]"
             }`}
           >
             <Video className="w-4 h-4" />
@@ -378,8 +378,8 @@ export default function AdminDashboardPage() {
             onClick={() => setActiveTab("journal")}
             className={`inline-flex items-center gap-2 px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] transition-colors ${
               activeTab === "journal"
-                ? "bg-[#181412] text-[#F6F3EC]"
-                : "bg-[#EDE6D8] text-[#524942] hover:text-[#181412]"
+                ? "bg-[#181412] text-[#FFFFFF]"
+                : "bg-[#F8F8F6] text-[#524942] hover:text-[#181412]"
             }`}
           >
             <FileText className="w-4 h-4" />
@@ -391,8 +391,8 @@ export default function AdminDashboardPage() {
             onClick={() => setActiveTab("inquiries")}
             className={`inline-flex items-center gap-2 px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] transition-colors ${
               activeTab === "inquiries"
-                ? "bg-[#181412] text-[#F6F3EC]"
-                : "bg-[#EDE6D8] text-[#524942] hover:text-[#181412]"
+                ? "bg-[#181412] text-[#FFFFFF]"
+                : "bg-[#F8F8F6] text-[#524942] hover:text-[#181412]"
             }`}
           >
             <Inbox className="w-4 h-4" />
@@ -403,7 +403,7 @@ export default function AdminDashboardPage() {
         {/* TAB 1: PROJECTS & BEFORE/AFTER BUILDER */}
         {activeTab === "projects" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-7 bg-[#EDE6D8] border border-[#181412]/15 p-8 md:p-10">
+            <div className="lg:col-span-7 bg-[#F8F8F6] border border-[#181412]/15 p-8 md:p-10">
               <h2 className="font-serif text-3xl text-[#181412] mb-2">
                 Add New Portfolio Case Study & Before/After Slider
               </h2>
@@ -423,7 +423,7 @@ export default function AdminDashboardPage() {
                       value={projTitle}
                       onChange={(e) => setProjTitle(e.target.value)}
                       placeholder="e.g. Belgravia Penthouse / Horto Florestal"
-                      className="w-full px-4 py-3 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                      className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                     />
                   </div>
                   <div>
@@ -435,7 +435,7 @@ export default function AdminDashboardPage() {
                       onChange={(e) =>
                         setProjCategory(e.target.value as ProjectCaseStudy["category"])
                       }
-                      className="w-full px-4 py-3 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                      className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                     >
                       <option value="Residential">Residential</option>
                       <option value="Hospitality">Hospitality</option>
@@ -454,7 +454,7 @@ export default function AdminDashboardPage() {
                       type="text"
                       value={projLocation}
                       onChange={(e) => setProjLocation(e.target.value)}
-                      className="w-full px-3.5 py-2.5 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                      className="w-full px-3.5 py-2.5 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                     />
                   </div>
                   <div>
@@ -465,7 +465,7 @@ export default function AdminDashboardPage() {
                       type="text"
                       value={projArea}
                       onChange={(e) => setProjArea(e.target.value)}
-                      className="w-full px-3.5 py-2.5 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                      className="w-full px-3.5 py-2.5 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                     />
                   </div>
                   <div>
@@ -476,13 +476,13 @@ export default function AdminDashboardPage() {
                       type="text"
                       value={projYear}
                       onChange={(e) => setProjYear(e.target.value)}
-                      className="w-full px-3.5 py-2.5 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                      className="w-full px-3.5 py-2.5 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                     />
                   </div>
                 </div>
 
                 {/* Before & After Image Selector / Uploader */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-5 bg-[#F6F3EC] border border-[#181412]/10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-5 bg-[#FFFFFF] border border-[#181412]/10">
                   <div className="space-y-3">
                     <label className="block font-mono text-xs uppercase tracking-wider text-[#8C6239]">
                       BEFORE Image (Raw Site Survey)
@@ -490,7 +490,7 @@ export default function AdminDashboardPage() {
                     <select
                       value={projBeforeImg}
                       onChange={(e) => setProjBeforeImg(e.target.value)}
-                      className="w-full px-3 py-2 bg-[#EDE6D8] border border-[#181412]/20 text-xs"
+                      className="w-full px-3 py-2 bg-[#F8F8F6] border border-[#181412]/20 text-xs"
                     >
                       {PRESET_STUDIO_IMAGES.map((img) => (
                         <option key={img.url} value={img.url}>
@@ -522,7 +522,7 @@ export default function AdminDashboardPage() {
                     <select
                       value={projAfterImg}
                       onChange={(e) => setProjAfterImg(e.target.value)}
-                      className="w-full px-3 py-2 bg-[#EDE6D8] border border-[#181412]/20 text-xs"
+                      className="w-full px-3 py-2 bg-[#F8F8F6] border border-[#181412]/20 text-xs"
                     >
                       {PRESET_STUDIO_IMAGES.map((img) => (
                         <option key={img.url} value={img.url}>
@@ -557,7 +557,7 @@ export default function AdminDashboardPage() {
                     value={projSubtitleEn}
                     onChange={(e) => setProjSubtitleEn(e.target.value)}
                     placeholder="Restoring Georgian Proportions with Brazilian Freijó Joinery"
-                    className="w-full px-4 py-3 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                    className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                   />
                 </div>
 
@@ -570,7 +570,7 @@ export default function AdminDashboardPage() {
                     value={projBriefEn}
                     onChange={(e) => setProjBriefEn(e.target.value)}
                     placeholder="Describe the original spatial bottleneck and psychological goal..."
-                    className="w-full px-4 py-3 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                    className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                   />
                 </div>
 
@@ -583,13 +583,13 @@ export default function AdminDashboardPage() {
                     value={projCureEn}
                     onChange={(e) => setProjCureEn(e.target.value)}
                     placeholder="Describe the joinery, lighting, and stone solutions..."
-                    className="w-full px-4 py-3 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                    className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#181412] text-[#F6F3EC] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-[#181412] text-[#FFFFFF] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2"
                 >
                   <PlusCircle className="w-4 h-4" />
                   Publish Project to Live Portfolio
@@ -606,7 +606,7 @@ export default function AdminDashboardPage() {
                 {projects.map((p) => (
                   <div
                     key={p.slug}
-                    className="p-5 bg-[#EDE6D8] border border-[#181412]/10 flex items-center gap-4"
+                    className="p-5 bg-[#F8F8F6] border border-[#181412]/10 flex items-center gap-4"
                   >
                     <div className="relative w-24 h-16 shrink-0 overflow-hidden bg-[#161311]">
                       <Image
@@ -640,7 +640,7 @@ export default function AdminDashboardPage() {
 
         {/* TAB 2: HOMEPAGE VIDEO & GOOGLE FLOW REELS */}
         {activeTab === "video" && (
-          <div className="max-w-3xl bg-[#EDE6D8] border border-[#181412]/15 p-8 md:p-12 space-y-6">
+          <div className="max-w-3xl bg-[#F8F8F6] border border-[#181412]/15 p-8 md:p-12 space-y-6">
             <h2 className="font-serif text-3xl text-[#181412]">
               Homepage Cinema Reel & Google Flow (Veo) Video Manager
             </h2>
@@ -658,13 +658,13 @@ export default function AdminDashboardPage() {
                   value={videoInput}
                   onChange={(e) => setVideoInput(e.target.value)}
                   placeholder="https://your-cdn.com/ramon-bennett-reel.mp4"
-                  className="w-full px-4 py-3.5 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                  className="w-full px-4 py-3.5 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                 />
               </div>
 
               <button
                 type="submit"
-                className="px-8 py-4 bg-[#181412] text-[#F6F3EC] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em]"
+                className="px-8 py-4 bg-[#181412] text-[#FFFFFF] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em]"
               >
                 Save Homepage Reel URL
               </button>
@@ -675,7 +675,7 @@ export default function AdminDashboardPage() {
         {/* TAB 3: JOURNAL ESSAY PUBLISHER */}
         {activeTab === "journal" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-7 bg-[#EDE6D8] border border-[#181412]/15 p-8 md:p-10">
+            <div className="lg:col-span-7 bg-[#F8F8F6] border border-[#181412]/15 p-8 md:p-10">
               <h2 className="font-serif text-3xl text-[#181412] mb-2">
                 Publish New Essay to /journal
               </h2>
@@ -694,7 +694,7 @@ export default function AdminDashboardPage() {
                     value={essayTitleEn}
                     onChange={(e) => setEssayTitleEn(e.target.value)}
                     placeholder="e.g. Why Quiet Rooms Create Deeper Conversations"
-                    className="w-full px-4 py-3 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                    className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                   />
                 </div>
 
@@ -707,7 +707,7 @@ export default function AdminDashboardPage() {
                       type="text"
                       value={essayCategory}
                       onChange={(e) => setEssayCategory(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                      className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                     />
                   </div>
                   <div>
@@ -717,7 +717,7 @@ export default function AdminDashboardPage() {
                     <select
                       value={essayCover}
                       onChange={(e) => setEssayCover(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                      className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                     >
                       {PRESET_STUDIO_IMAGES.map((img) => (
                         <option key={img.url} value={img.url}>
@@ -737,7 +737,7 @@ export default function AdminDashboardPage() {
                     value={essayExcerptEn}
                     onChange={(e) => setEssayExcerptEn(e.target.value)}
                     placeholder="A 1-2 sentence opening hook..."
-                    className="w-full px-4 py-3 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                    className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                   />
                 </div>
 
@@ -751,7 +751,7 @@ export default function AdminDashboardPage() {
                     value={essayBodyEn}
                     onChange={(e) => setEssayBodyEn(e.target.value)}
                     placeholder="Write your essay here..."
-                    className="w-full px-4 py-3 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                    className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                   />
                 </div>
 
@@ -764,13 +764,13 @@ export default function AdminDashboardPage() {
                     value={essayTakeawayEn}
                     onChange={(e) => setEssayTakeawayEn(e.target.value)}
                     placeholder="Every space tells a story. Ours begins by listening."
-                    className="w-full px-4 py-3 bg-[#F6F3EC] border border-[#181412]/20 text-sm"
+                    className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#181412]/20 text-sm"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#181412] text-[#F6F3EC] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em]"
+                  className="w-full py-4 bg-[#181412] text-[#FFFFFF] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em]"
                 >
                   Publish Essay Live
                 </button>
@@ -784,7 +784,7 @@ export default function AdminDashboardPage() {
               {essays.map((e) => (
                 <div
                   key={e.slug}
-                  className="p-5 bg-[#EDE6D8] border border-[#181412]/10 space-y-2"
+                  className="p-5 bg-[#F8F8F6] border border-[#181412]/10 space-y-2"
                 >
                   <div className="font-mono text-[10px] uppercase tracking-widest text-[#8C6239]">
                     {e.category.en} • {e.date}
@@ -804,7 +804,7 @@ export default function AdminDashboardPage() {
 
         {/* TAB 4: CLIENT INQUIRIES & BREVO LOG */}
         {activeTab === "inquiries" && (
-          <div className="bg-[#EDE6D8] border border-[#181412]/15 p-8 md:p-12 space-y-6">
+          <div className="bg-[#F8F8F6] border border-[#181412]/15 p-8 md:p-12 space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#181412]/10 pb-6">
               <div>
                 <h2 className="font-serif text-3xl text-[#181412]">
@@ -814,7 +814,7 @@ export default function AdminDashboardPage() {
                   All submissions from the Consultation Concierge drawer and `/contact` page are forwarded to `/api/inquire` (Brevo) and mirrored below.
                 </p>
               </div>
-              <span className="px-4 py-2 bg-[#161311] text-[#F6F3EC] font-mono text-xs">
+              <span className="px-4 py-2 bg-[#161311] text-[#FFFFFF] font-mono text-xs">
                 {inquiries.length} Recorded Dossiers
               </span>
             </div>
@@ -833,7 +833,7 @@ export default function AdminDashboardPage() {
                 {inquiries.map((inq) => (
                   <div
                     key={inq.id}
-                    className="p-6 bg-[#F6F3EC] border border-[#181412]/10 space-y-3"
+                    className="p-6 bg-[#FFFFFF] border border-[#181412]/10 space-y-3"
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-[#8C6239]">
                       <span>{inq.projectType || "Private Commission"}</span>
@@ -846,7 +846,7 @@ export default function AdminDashboardPage() {
                       Location: {inq.city || "London / Salvador"} • Budget: {inq.budgetRange || "Not specified"} • Phone: {inq.phone || "N/A"}
                     </div>
                     {inq.message && (
-                      <p className="text-sm text-[#181412] bg-[#EDE6D8] p-4 border-l-2 border-[#8C6239]">
+                      <p className="text-sm text-[#181412] bg-[#F8F8F6] p-4 border-l-2 border-[#8C6239]">
                         {inq.message}
                       </p>
                     )}

@@ -98,12 +98,12 @@ export default function FounderPage() {
   const { locale, openConcierge } = useStudio();
 
   return (
-    <main className="min-h-screen bg-[#F6F3EC] text-[#181412] pt-28 md:pt-36">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#181412] pt-28 md:pt-36">
       {/* Editorial Portrait & Unified Brand Manifesto */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 pb-24 md:pb-32 border-b border-[#181412]/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-5">
-            <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#EDE6D8] border border-[#181412]/15 shadow-2xl">
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#F8F8F6] border border-[#181412]/15 shadow-2xl">
               <Image
                 src="/images/people_ramon.png"
                 alt="Ramon Bennett — Founder & Creative Director"
@@ -112,7 +112,7 @@ export default function FounderPage() {
                 sizes="(max-width: 1024px) 100vw, 42vw"
                 className="object-cover object-top"
               />
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#161311]/90 via-[#161311]/50 to-transparent p-6 text-[#F6F3EC]">
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#161311]/90 via-[#161311]/50 to-transparent p-6 text-[#FFFFFF]">
                 <div className="font-mono text-xs uppercase tracking-[0.2em] text-[#C59B6D]">
                   LONDON SW7 • SALVADOR BAHIA
                 </div>
@@ -131,7 +131,7 @@ export default function FounderPage() {
                 href={STUDIO_CONFIG.instagramPersonal}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-[#EDE6D8] border border-[#181412]/10 hover:border-[#8C6239] transition-colors group"
+                className="p-4 bg-[#F8F8F6] border border-[#181412]/10 hover:border-[#8C6239] transition-colors group"
               >
                 <div className="flex items-center justify-between text-xs font-mono text-[#8C6239]">
                   <span className="inline-flex items-center gap-1.5">
@@ -154,7 +154,7 @@ export default function FounderPage() {
                 href={STUDIO_CONFIG.instagramStudio}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-[#EDE6D8] border border-[#181412]/10 hover:border-[#8C6239] transition-colors group"
+                className="p-4 bg-[#F8F8F6] border border-[#181412]/10 hover:border-[#8C6239] transition-colors group"
               >
                 <div className="flex items-center justify-between text-xs font-mono text-[#8C6239]">
                   <span className="inline-flex items-center gap-1.5">
@@ -214,7 +214,7 @@ export default function FounderPage() {
             <div className="pt-4 flex flex-wrap gap-4">
               <button
                 onClick={() => openConcierge()}
-                className="px-8 py-4 bg-[#181412] text-[#F6F3EC] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em]"
+                className="px-8 py-4 bg-[#181412] text-[#FFFFFF] hover:bg-[#8C6239] transition-colors font-mono text-xs uppercase tracking-[0.2em]"
               >
                 {locale === "en"
                   ? "Request Private Consultation or Keynote"
@@ -250,7 +250,7 @@ export default function FounderPage() {
           {INTELLECTUAL_TIMELINE.map((item, idx) => (
             <div
               key={item.era}
-              className="p-8 md:p-10 bg-[#EDE6D8] border border-[#181412]/10 flex flex-col justify-between"
+              className="p-8 md:p-10 bg-[#F8F8F6] border border-[#181412]/10 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between font-mono text-xs text-[#8C6239] tracking-[0.18em] mb-6">
@@ -299,7 +299,7 @@ export default function FounderPage() {
           </div>
           <button
             onClick={() => openConcierge()}
-            className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#4A1E1B] text-[#F6F3EC] hover:bg-[#181412] transition-colors font-mono text-xs uppercase tracking-[0.2em] shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#4A1E1B] text-[#FFFFFF] hover:bg-[#181412] transition-colors font-mono text-xs uppercase tracking-[0.2em] shrink-0"
           >
             <Mic className="w-4 h-4" />
             {locale === "en" ? "Inquire for Speaking / Press" : "Contratar Palestra / Imprensa"}
@@ -358,7 +358,7 @@ export default function FounderPage() {
               <Link
                 key={essay.slug}
                 href={`/journal/${essay.slug}`}
-                className="group block bg-[#EDE6D8] border border-[#181412]/10 overflow-hidden"
+                className="group block bg-[#F8F8F6] border border-[#181412]/10 overflow-hidden"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image

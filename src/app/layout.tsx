@@ -88,12 +88,12 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="font-sans bg-limestone text-espresso antialiased selection:bg-oxblood selection:text-limestone">
+      <body className="font-sans bg-white text-espresso antialiased selection:bg-espresso selection:text-white">
         <JsonLd />
         <StudioProvider>
           <SmoothScroll>
             <Header />
-            <main className="min-h-screen pt-20 lg:pt-28">{children}</main>
+            <main className="min-h-screen pt-[94px] lg:pt-[108px] bg-white">{children}</main>
             <Footer />
             <ConsultationConcierge />
             <VipConciergePill />
