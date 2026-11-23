@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 bg-white transition-all duration-500 ease-architectural border-b border-espresso/10 ${
+        className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-500 ease-architectural border-b border-espresso/10 ${
           scrolled ? "shadow-sm" : ""
         }`}
       >
@@ -177,7 +177,7 @@ export default function Header() {
             animate={{ opacity: 1, y: "0%" }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-30 bg-white text-espresso pt-32 pb-10 px-6 flex flex-col justify-between overflow-y-auto"
+            className="fixed inset-0 z-40 bg-white text-espresso pt-32 pb-20 px-6 flex flex-col justify-between overflow-y-auto"
           >
             <nav className="flex flex-col items-center space-y-6 text-center pt-4">
               {allNavItems.map((item) => (
